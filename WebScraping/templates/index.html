@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>📚 Stylish Books Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <h1>📚 Stylish Books Data</h1>
+
+    <form method="POST">
+        <input type="text" name="query" placeholder="Search Book Title">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for book in books %}
+            <li>
+                <strong>{{ book.Title }}</strong><br>
+                Price: {{ book.Price }}<br>
+                Rating: {{ book.Rating }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
