@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>🚀 Advanced OCR Text Extractor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 OCR Text Extractor</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <br>
+            <button type="submit">Extract Text</button>
+        </form>
+
+        {% if image_path %}
+            <h2>Uploaded Image:</h2>
+            <img src="{{ image_path }}" alt="Uploaded Image">
+        {% endif %}
+
+        {% if extracted_text %}
+            <h2>Extracted Text:</h2>
+            <pre>{{ extracted_text }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>
